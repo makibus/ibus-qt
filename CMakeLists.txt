@@ -6,6 +6,7 @@ endif(COMMAND cmake_policy)
 # ======
 # Project information
 project(ibusqt)
+include(GNUInstallDirs)
 set(AUTHORS "Peng Huang")
 set(MAINTAINER "Peng Huang <shawn.p.huang at gmail dot com>")
 set(VERSION_MAJOR "1")
@@ -103,15 +104,15 @@ target_link_libraries(
 )
 
 install(TARGETS ibusqt
-    LIBRARY DESTINATION ${LIBDIR})
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES ${ibusqt_HDRS}
-    DESTINATION include/ibusqt COMPONENT Devel)
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ibusqt COMPONENT Devel)
 
 # Config and install pc file
 set (prefix ${CMAKE_INSTALL_PREFIX})
 set (exec_prefix ${CMAKE_INSTALL_PREFIX})
-set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX})
-set (includedir ${CMAKE_INSTALL_PREFIX}/include)
+set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+set (includedir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR})
 
 configure_file(
     ibusqt.pc.in
@@ -123,5 +124,5 @@ install(
     FILES
         ${CMAKE_BINARY_DIR}/ibusqt.pc
     DESTINATION
-        ${CMAKE_INSTALL_PREFIX}/${CMAKE_SHARED_LIBRARY_PREFIX}/pkgconfig
+        ${CMAKE_INSTALL_LIBDIR}/pkgconfig
 )
