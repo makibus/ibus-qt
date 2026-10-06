@@ -1,5 +1,5 @@
-#ifndef __Q_IBUS_CONFIG_H_
-#define __Q_IBUS_CONFIG_H_
+#ifndef __Q_IBUS_CONFIG_SERVICE_H_
+#define __Q_IBUS_CONFIG_SERVICE_H_
 
 #include <QDBusConnection>
 #include <QDBusVariant>
