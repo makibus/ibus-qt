@@ -1,7 +1,7 @@
 #ifndef __Q_IBUS_FACTORY_ADAPTOR_H_
 #define __Q_IBUS_FACTORY_ADAPTOR_H_
 
-#include <QLinkedList>
+#include <QList>
 #include <QDBusConnection>
 #include <QDBusObjectPath>
 #include "qibusobject.h"
@@ -37,7 +37,7 @@ private :
     uint    m_id;
     QDBusConnection m_conn;
     QMap<QString, const QMetaObject *> m_engineMap;
-    QLinkedList<EnginePointer> m_engineLList;
+    QList<EnginePointer> m_engineLList;
     IBusFactoryAdaptor	*m_factoryAdaptor;
 
     static EngineFactory	*m_factory;

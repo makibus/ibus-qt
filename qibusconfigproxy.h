@@ -45,21 +45,21 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<QDBusVariant> GetValue(const QString &section, const QString &name)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(section) << qVariantFromValue(name);
+        argumentList << QVariant::fromValue(section) << QVariant::fromValue(name);
         return asyncCallWithArgumentList(QLatin1String("GetValue"), argumentList);
     }
 
     inline QDBusPendingReply<> SetValue(const QString &section, const QString &name, const QDBusVariant &value)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(section) << qVariantFromValue(name) << qVariantFromValue(value);
+        argumentList << QVariant::fromValue(section) << QVariant::fromValue(name) << QVariant::fromValue(value);
         return asyncCallWithArgumentList(QLatin1String("SetValue"), argumentList);
     }
 
     inline QDBusPendingReply<> Unset(const QString &section, const QString &name)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(section) << qVariantFromValue(name);
+        argumentList << QVariant::fromValue(section) << QVariant::fromValue(name);
         return asyncCallWithArgumentList(QLatin1String("Unset"), argumentList);
     }
 

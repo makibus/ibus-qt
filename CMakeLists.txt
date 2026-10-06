@@ -1,7 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
-if(COMMAND cmake_policy)
-    cmake_policy(SET CMP0003 NEW)
-endif(COMMAND cmake_policy)
+cmake_minimum_required(VERSION 3.16)
 
 # ======
 # Project information
@@ -18,7 +15,12 @@ set(LIB_SOVERSION "1")
 
 set (VERSION ${LIB_VERSION})
 
-find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Xml)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core DBus Xml)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core DBus Xml)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOMOC ON)
 
 set(
     ibusqt_SRCS
@@ -78,16 +80,10 @@ set(
     qibustypes.h
 )
 
-QT5_WRAP_CPP(
-    ibusqt_MOC_SRCS
-    ${ibusqt_HDRS}
-)
-
 add_library(
     ibusqt
     SHARED
     ${ibusqt_SRCS}
-    ${ibusqt_MOC_SRCS}
 )
 
 set_target_properties(
@@ -98,9 +94,9 @@ set_target_properties(
 
 target_link_libraries(
     ibusqt
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Xml
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::DBus
+    Qt${QT_VERSION_MAJOR}::Xml
 )
 
 install(TARGETS ibusqt
@@ -113,6 +109,7 @@ set (prefix ${CMAKE_INSTALL_PREFIX})
 set (exec_prefix ${CMAKE_INSTALL_PREFIX})
 set (libdir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
 set (includedir ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR})
+set (QT_PC_PREFIX Qt${QT_VERSION_MAJOR})
 
 configure_file(
     ibusqt.pc.in

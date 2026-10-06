@@ -39,7 +39,7 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<> AddMatch(const QString &in0)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0);
+        argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QLatin1String("AddMatch"), argumentList);
     }
 
@@ -52,7 +52,7 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<QString> GetNameOwner(const QString &in0)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0);
+        argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QLatin1String("GetNameOwner"), argumentList);
     }
 
@@ -71,28 +71,28 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<bool> NameHasOwner(const QString &in0)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0);
+        argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QLatin1String("NameHasOwner"), argumentList);
     }
 
     inline QDBusPendingReply<uint> ReleaseName(const QString &in0)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0);
+        argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QLatin1String("ReleaseName"), argumentList);
     }
 
     inline QDBusPendingReply<> RemoveMatch(const QString &in0)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0);
+        argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QLatin1String("RemoveMatch"), argumentList);
     }
 
     inline QDBusPendingReply<uint> RequestName(const QString &in0, uint in1)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(in0) << qVariantFromValue(in1);
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
         return asyncCallWithArgumentList(QLatin1String("RequestName"), argumentList);
     }
 

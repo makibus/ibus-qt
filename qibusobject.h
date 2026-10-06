@@ -5,11 +5,6 @@
 #include <QMetaType>
 #include "qibuspointer.h"
 
-#ifdef QT_USE_NAMESPACE
-#  undef QT_USE_NAMESPACE
-#  define QT_USE_NAMESPACE IBus
-#endif
-
 namespace IBus {
 
 class Object;

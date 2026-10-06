@@ -81,14 +81,14 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<bool> ProcessKeyEvent(uint keyval, uint keycode, uint state)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(keyval) << qVariantFromValue(keycode) << qVariantFromValue(state);
+        argumentList << QVariant::fromValue(keyval) << QVariant::fromValue(keycode) << QVariant::fromValue(state);
         return asyncCallWithArgumentList(QLatin1String("ProcessKeyEvent"), argumentList);
     }
 
     inline QDBusPendingReply<> PropertyActivate(const QString &name, int state)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(name) << qVariantFromValue(state);
+        argumentList << QVariant::fromValue(name) << QVariant::fromValue(state);
         return asyncCallWithArgumentList(QLatin1String("PropertyActivate"), argumentList);
     }
 
@@ -101,21 +101,21 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<> SetCapabilities(uint caps)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(caps);
+        argumentList << QVariant::fromValue(caps);
         return asyncCallWithArgumentList(QLatin1String("SetCapabilities"), argumentList);
     }
 
     inline QDBusPendingReply<> SetCursorLocation(int x, int y, int w, int h)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(x) << qVariantFromValue(y) << qVariantFromValue(w) << qVariantFromValue(h);
+        argumentList << QVariant::fromValue(x) << QVariant::fromValue(y) << QVariant::fromValue(w) << QVariant::fromValue(h);
         return asyncCallWithArgumentList(QLatin1String("SetCursorLocation"), argumentList);
     }
 
     inline QDBusPendingReply<> SetEngine(const QString &name)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(name);
+        argumentList << QVariant::fromValue(name);
         return asyncCallWithArgumentList(QLatin1String("SetEngine"), argumentList);
     }
 
