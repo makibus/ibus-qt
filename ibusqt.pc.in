@@ -6,6 +6,6 @@ includedir=@includedir@/ibusqt
 Name: IBusQt
 Description: IBus library based on Qt
 Version: @VERSION@
-Requires.private: dbus-1 Qt5Core Qt5Xml Qt5DBus
+Requires.private: Qt5Core Qt5Xml Qt5DBus
 Libs: -L${libdir} -libusqt
 Cflags: -I${includedir}

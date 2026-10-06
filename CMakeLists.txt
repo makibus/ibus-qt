@@ -19,17 +19,6 @@ set (VERSION ${LIB_VERSION})
 
 find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Xml)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(DBUS REQUIRED dbus-1)
-
-include_directories(
-    ${DBUS_INCLUDE_DIRS}
-)
-
-link_directories(
-    ${DBUS_LIBRARY_DIRS}
-)
-
 set(
     ibusqt_SRCS
     qibusobject.cpp
@@ -111,7 +100,6 @@ target_link_libraries(
     Qt5::Core
     Qt5::DBus
     Qt5::Xml
-    ${DBUS_LIBRARIES}
 )
 
 install(TARGETS ibusqt
