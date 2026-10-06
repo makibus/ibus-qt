@@ -11,8 +11,11 @@
 #include "qibusbus.h"
 #include "qibusibusproxy.h"
 #include "qibusdbusproxy.h"
+#if defined(Q_OS_UNIX) && __has_include(<X11/Xlib.h>) && __has_include(<QX11Info>)
 #include <X11/Xlib.h>
 #include <QX11Info>
+#define IBUSQT_HAVE_X11
+#endif
 
 namespace IBus {
 /**
@@ -125,7 +128,7 @@ Bus::getSocketPath (void)
     QString display_number = "0";
     bool is_wayland = false;
 
-    if (display != NULL) {
+    if (!display.isNull()) {
         is_wayland = true;
         display_number = display;
     } else {
@@ -133,12 +136,14 @@ Bus::getSocketPath (void)
     }
 
     /* fallback when -display is passed to QApplication with no DISPLAY env */
-    if (display == NULL) {
+#ifdef IBUSQT_HAVE_X11
+    if (display.isNull()) {
         Display * dpy = QX11Info::display();
         if (dpy)
             display = XDisplayString(dpy);
     }
-    if (!is_wayland && display != NULL && display.contains(':')) {
+#endif
+    if (!is_wayland && !display.isNull() && display.contains(':')) {
         QStringList strs = display.split(":");
 
         if (!strs[0].isEmpty())
