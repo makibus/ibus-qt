@@ -36,3 +36,10 @@ Include the umbrella header after adding the ibusqt include directory:
 
 The API lives in the `IBus` namespace, e.g. `IBus::Bus`,
 `IBus::InputContext`, `IBus::Engine` and `IBus::Config`.
+
+## License
+
+GPL-2.0-only, matching upstream ibus-qt (see [COPYING](COPYING)).
+The keysym table in `qibuskeysyms.h` originates from ibus under
+LGPL-2.0+ and is relicensed under GPLv2 per section 3 of the LGPL.
+
