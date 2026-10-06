@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.0)
 if(COMMAND cmake_policy)
     cmake_policy(SET CMP0003 NEW)
 endif(COMMAND cmake_policy)
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 # ======
 # Project information
@@ -21,7 +20,6 @@ set (VERSION ${LIB_VERSION})
 find_package(Qt5 5.4 REQUIRED COMPONENTS DBus Xml)
 
 find_package(PkgConfig REQUIRED)
-find_package(ICU REQUIRED)
 pkg_check_modules(DBUS REQUIRED dbus-1)
 
 include_directories(
