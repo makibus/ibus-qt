@@ -39,14 +39,14 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<QDBusObjectPath> CreateInputContext(const QString &name)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(name);
+        argumentList << QVariant::fromValue(name);
         return asyncCallWithArgumentList(QLatin1String("CreateInputContext"), argumentList);
     }
 
     inline QDBusPendingReply<> Exit(bool restart)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(restart);
+        argumentList << QVariant::fromValue(restart);
         return asyncCallWithArgumentList(QLatin1String("Exit"), argumentList);
     }
 
@@ -71,14 +71,14 @@ public Q_SLOTS: // METHODS
     inline QDBusPendingReply<QDBusVariant> Ping(const QDBusVariant &data)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(data);
+        argumentList << QVariant::fromValue(data);
         return asyncCallWithArgumentList(QLatin1String("Ping"), argumentList);
     }
 
     inline QDBusPendingReply<> RegisterComponent(const QDBusVariant &components)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(components);
+        argumentList << QVariant::fromValue(components);
         return asyncCallWithArgumentList(QLatin1String("RegisterComponent"), argumentList);
     }
 
@@ -87,7 +87,9 @@ Q_SIGNALS: // SIGNALS
 
 namespace org {
   namespace freedesktop {
-    typedef ::IBusProxy IBus;
+    namespace IBus {
+      typedef ::IBusProxy IBus;
+    }
   }
 }
 #endif
