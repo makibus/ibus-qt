@@ -78,6 +78,8 @@ set(
     qibusconfig.h
     qibuspointer.h
     qibustypes.h
+    qibuskeysyms.h
+    qibus.h
 )
 
 add_library(
