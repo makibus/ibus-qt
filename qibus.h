@@ -9,6 +9,7 @@
 #include <qibuscomponent.h>
 #include <qibusbus.h>
 #include <qibusenginefactory.h>
+#include <qibusconfig.h>
 #include <qibuskeysyms.h>
 
 #endif
