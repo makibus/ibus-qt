@@ -4,7 +4,9 @@ A Qt client library for the [IBus](https://github.com/ibus/ibus) input
 method framework, talking to the IBus daemon over D-Bus with QtDBus.
 
 This is a port of the original ibus-qt 1.3.x by Peng Huang, maintained
-as a standalone library. It builds with both Qt 5 and Qt 6.
+by the [makibus](https://github.com/makibus) organization. It builds
+with both Qt 5 and Qt 6, and tracks fixes from
+[ibus/ibus-qt](https://github.com/ibus/ibus-qt) upstream.
 
 ## Building
 
